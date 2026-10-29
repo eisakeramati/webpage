@@ -1,0 +1,674 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Eisa Keramatinejad Website</title>
+	<meta name="description" content="Eisa Keramatinejad is a full-stack software engineer at Microsoft in Toronto, working in TypeScript, Python and C#.">
+	<meta name="author" content="Eisa Keramatinejad">
+	<meta name="theme-color" content="#FF9000">
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Eisa Keramatinejad — Software Engineer">
+	<meta property="og:description" content="Full-stack software engineer at Microsoft in Toronto.">
+	<meta property="og:url" content="https://eisakeramati.github.io/HomePage/">
+	<meta property="og:image" content="https://eisakeramati.github.io/HomePage/images/profileEisa.jpg">
+	<meta name="twitter:card" content="summary">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Eisa Keramatinejad — personal site
+   Same identity as the original template (orange #FF9000, navy #2F3C4F,
+   Space Mono + Kaushan Script), rebuilt without Bootstrap or jQuery. */
+
+:root {
+	--orange: #FF9000;
+	--orange-deep: #D97A00;   /* text-safe orange on white */
+	--navy: #2F3C4F;
+	--ink: #1d232c;
+	--body: #4d4d4d;
+	--muted: #7a7f87;
+	--line: #e6e3de;
+	--tint: #f7f5f2;
+	--white: #fff;
+
+	--mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+	--script: "Kaushan Script", cursive;
+
+	--wrap: 1120px;
+	--gutter: clamp(16px, 4vw, 32px);
+	--nav-h: 64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+	margin: 0;
+	font-family: var(--mono);
+	font-size: 15px;
+	line-height: 1.8;
+	color: var(--body);
+	background: var(--white);
+	-webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--orange-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--orange); }
+h1, h2, h3 { font-family: var(--mono); font-weight: 400; color: var(--ink); line-height: 1.25; margin: 0; }
+p { margin: 0 0 1em; }
+ul, ol { margin: 0; padding: 0; }
+
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 2px; }
+
+.skip-link {
+	position: absolute; left: 16px; top: -100px; z-index: 100;
+	background: var(--navy); color: var(--white); padding: 8px 16px;
+}
+.skip-link:focus { top: 12px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- Nav ---------- */
+.nav {
+	position: fixed; inset: 0 0 auto 0; z-index: 50;
+	height: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px);
+	transition: background-color .25s ease, box-shadow .25s ease;
+}
+.nav.is-solid { background: var(--white); box-shadow: 0 1px 0 var(--line); }
+.nav__inner {
+	max-width: var(--wrap); height: 100%; margin: 0 auto; padding: 0 var(--gutter);
+	display: flex; align-items: center; justify-content: space-between;
+}
+.nav__brand {
+	font-family: var(--script); font-size: 26px; color: var(--white); text-decoration: none;
+}
+.nav.is-solid .nav__brand { color: var(--orange); }
+.nav__links { display: flex; gap: 28px; align-items: center; }
+.nav__links a {
+	color: var(--white); text-decoration: none; font-size: 14px;
+	padding: 4px 0; border-bottom: 2px solid transparent;
+}
+.nav__links a:hover { border-bottom-color: currentColor; }
+.nav.is-solid .nav__links a { color: var(--ink); }
+.nav.is-solid .nav__links a:hover,
+.nav.is-solid .nav__links a.is-current { color: var(--orange-deep); border-bottom-color: var(--orange); }
+.nav__links .nav__cta { border: 2px solid currentColor; padding: 4px 14px; border-radius: 30px; }
+.nav.is-solid .nav__links .nav__cta { border-color: var(--orange); color: var(--orange-deep); }
+.nav__links .nav__cta:hover { background: var(--white); color: var(--orange-deep); }
+.nav.is-solid .nav__links .nav__cta:hover { background: var(--orange); color: var(--white); }
+
+.nav__toggle {
+	display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+	flex-direction: column; justify-content: center; gap: 7px; padding: 10px;
+}
+.nav__toggle span { display: block; height: 2px; background: var(--white); transition: transform .2s ease; }
+.nav.is-solid .nav__toggle span, .nav.is-open .nav__toggle span { background: var(--ink); }
+.nav.is-open .nav__toggle span:first-child { transform: translateY(4.5px) rotate(45deg); }
+.nav.is-open .nav__toggle span:last-child { transform: translateY(-4.5px) rotate(-45deg); }
+
+@media (max-width: 800px) {
+	.nav__toggle { display: flex; }
+	.nav__links {
+		position: absolute; top: var(--nav-h); left: 0; right: 0;
+		flex-direction: column; align-items: stretch; gap: 0;
+		background: var(--white); box-shadow: 0 8px 20px rgba(29,35,44,.12);
+		padding: 8px var(--gutter) 16px;
+		display: none;
+	}
+	.nav.is-open { background: var(--white); }
+	.nav.is-open .nav__brand { color: var(--orange); }
+	.nav.is-open .nav__links { display: flex; }
+	.nav__links a, .nav.is-solid .nav__links a { color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--line); }
+	.nav__links .nav__cta, .nav.is-solid .nav__links .nav__cta {
+		border: 0; border-radius: 0; padding: 12px 0; color: var(--orange-deep);
+	}
+}
+
+/* ---------- Hero ---------- */
+.hero {
+	position: relative;
+	min-height: 100vh; min-height: 100svh;
+	display: grid; place-items: center;
+	padding: calc(var(--nav-h) + 32px) var(--gutter) 96px;
+	text-align: center; color: var(--white);
+	background:
+		linear-gradient(rgba(255,144,0,.9), rgba(255,144,0,.9)),
+		url("images/cover_bg_1.jpg") center / cover no-repeat;
+}
+.hero__inner { max-width: 640px; }
+.hero__photo {
+	width: 160px; height: 160px; margin: 0 auto 28px;
+	border-radius: 50%; object-fit: cover; object-position: center 20%;
+	border: 4px solid rgba(255,255,255,.85);
+}
+.hero__name {
+	font-family: var(--script); color: var(--white);
+	font-size: clamp(44px, 8vw, 76px); line-height: 1.1;
+	margin-bottom: 12px;
+}
+.hero__role { font-size: clamp(16px, 2.2vw, 20px); margin-bottom: 18px; color: var(--white); }
+.hero__lede { max-width: 52ch; margin: 0 auto 28px; color: rgba(255,255,255,.92); }
+
+/* The one orchestrated moment: the hero assembles on load */
+@media (prefers-reduced-motion: no-preference) {
+	.hero__inner > * { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+	.hero__photo  { animation-delay: .05s; }
+	.hero__name   { animation-delay: .18s; }
+	.hero__role   { animation-delay: .30s; }
+	.hero__lede   { animation-delay: .40s; }
+	.hero .social { animation-delay: .50s; }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+.social { list-style: none; display: flex; gap: 10px; justify-content: center; }
+.social a {
+	display: grid; place-items: center; width: 44px; height: 44px;
+	border-radius: 50%; color: var(--white); border: 2px solid rgba(255,255,255,.8);
+	transition: background-color .2s ease, color .2s ease;
+}
+.social a:hover { background: var(--white); color: var(--orange-deep); }
+.social svg { width: 20px; height: 20px; }
+
+.hero__scroll {
+	position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+	color: var(--white); width: 44px; height: 44px; display: grid; place-items: center;
+}
+.hero__scroll svg { width: 28px; height: 28px; }
+
+/* ---------- Sections ---------- */
+.section { padding: clamp(64px, 10vw, 112px) 0; }
+.section--tint { background: var(--tint); }
+.section--dark { background: var(--navy); color: rgba(255,255,255,.8); }
+.section--dark .section__title { color: var(--white); }
+
+.section__title {
+	font-size: clamp(28px, 4vw, 38px);
+	text-align: center; margin-bottom: clamp(36px, 6vw, 64px);
+}
+.section__title::after {
+	content: ""; display: block; width: 48px; height: 3px;
+	background: var(--orange); margin: 18px auto 0;
+}
+.section__title--sub { margin-top: clamp(72px, 10vw, 104px); font-size: clamp(24px, 3.4vw, 32px); }
+.section__intro { max-width: 60ch; margin: -24px auto 48px; text-align: center; }
+
+/* ---------- About ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(32px, 6vw, 72px); }
+.facts { margin: 0; }
+.facts > div { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts > div:first-child { padding-top: 0; }
+.facts dt { color: var(--ink); font-weight: 700; font-size: 14px; }
+.facts dd { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.about__text h3 { font-size: 28px; margin-bottom: 18px; }
+.about__text p { max-width: 64ch; }
+
+@media (max-width: 800px) {
+	.about { grid-template-columns: 1fr; }
+	.about__text { order: -1; }
+}
+
+/* ---------- Timeline ---------- */
+.timeline { list-style: none; position: relative; }
+.timeline::before {
+	content: ""; position: absolute; top: 6px; bottom: 6px; left: 50%;
+	width: 2px; margin-left: -1px; background: var(--line);
+}
+.tl {
+	position: relative;
+	display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px;
+	margin-bottom: 48px;
+}
+.tl:last-child { margin-bottom: 0; }
+.tl::before {
+	content: ""; position: absolute; left: 50%; top: 8px;
+	width: 16px; height: 16px; margin-left: -8px; border-radius: 50%;
+	background: var(--orange); box-shadow: 0 0 0 5px var(--tint);
+}
+.tl__when { color: var(--muted); font-size: 14px; padding-top: 2px; text-align: right; }
+.tl__card { min-width: 0; }
+.tl:nth-child(even) .tl__when { grid-column: 2; grid-row: 1; text-align: left; }
+.tl:nth-child(even) .tl__card { grid-column: 1; grid-row: 1; }
+.tl:nth-child(even) .tl__card h3,
+.tl:nth-child(even) .tl__card .tl__org { text-align: right; }
+.tl__card h3 { font-size: 20px; }
+.tl__org { color: var(--orange-deep); font-size: 14px; margin: 4px 0 12px; }
+.tl__card ul { list-style: none; }
+.tl__card li { position: relative; padding-left: 18px; margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+.tl__card li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 2px; background: var(--orange); }
+.tl__card p:last-child { margin-bottom: 0; }
+
+.earlier { margin-top: 48px; }
+.earlier summary {
+	width: max-content; margin: 0 auto; cursor: pointer; list-style: none;
+	padding: 8px 20px; border: 2px solid var(--navy); border-radius: 30px; color: var(--navy); font-size: 14px;
+}
+.earlier summary::-webkit-details-marker { display: none; }
+.earlier summary::after { content: " +"; }
+.earlier[open] summary::after { content: " \2212"; }
+.earlier summary:hover { background: var(--navy); color: var(--white); }
+.earlier[open] summary { margin-bottom: 48px; }
+.timeline--compact .tl { margin-bottom: 36px; }
+.timeline--compact .tl__card p { font-size: 14px; }
+
+@media (max-width: 800px) {
+	.timeline::before { left: 7px; }
+	.tl { grid-template-columns: 1fr; padding-left: 36px; margin-bottom: 40px; }
+	.tl::before { left: 7px; top: 6px; }
+	.tl__when,
+	.tl:nth-child(even) .tl__when { grid-column: 1; grid-row: 1; text-align: left; margin-bottom: 4px; }
+	.tl__card,
+	.tl:nth-child(even) .tl__card { grid-column: 1; grid-row: 2; }
+	.tl:nth-child(even) .tl__card h3,
+	.tl:nth-child(even) .tl__card .tl__org { text-align: left; }
+}
+
+/* ---------- Education ---------- */
+.edu { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 72px; }
+.edu__item h3 { font-size: 20px; }
+.edu__item p:last-child { font-size: 14px; margin: 0; }
+.honours {
+	grid-column: 1 / -1; list-style: none;
+	display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+	padding-top: 32px; border-top: 1px solid var(--line); font-size: 14px;
+}
+.honours strong { color: var(--ink); display: block; }
+@media (max-width: 800px) {
+	.edu { grid-template-columns: 1fr; gap: 32px; }
+	.honours { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ---------- Skills ---------- */
+.skills { margin: 0 auto; max-width: 880px; }
+.skills > div {
+	display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+	padding: 20px 0; border-top: 1px solid var(--line);
+}
+.skills > div:last-child { border-bottom: 1px solid var(--line); }
+.skills dt { color: var(--ink); font-weight: 700; }
+.skills dt::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); margin-right: 12px; }
+.skills dd { margin: 0; }
+@media (max-width: 640px) {
+	.skills > div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ---------- Projects ---------- */
+.projects { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.project {
+	position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden;
+	border-radius: 4px; background: #253041; color: var(--white); text-decoration: none;
+}
+.project img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .5s ease; }
+.project__desc {
+	position: absolute; inset: auto 0 0 0; padding: 40px 18px 16px;
+	background: linear-gradient(to top, rgba(29,35,44,.95) 30%, rgba(29,35,44,0));
+	display: flex; flex-direction: column; gap: 2px; text-align: left;
+	transition: background .3s ease;
+}
+.project__desc strong { font-size: 16px; font-weight: 700; color: var(--white); }
+.project__desc span { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.8); }
+.project:hover, .project:focus-visible { color: var(--white); }
+.project:hover .project__desc, .project:focus-visible .project__desc {
+	background: linear-gradient(to top, rgba(255,144,0,.96) 40%, rgba(255,144,0,.15));
+}
+.project:hover .project__desc span, .project:focus-visible .project__desc span { color: var(--white); }
+@media (prefers-reduced-motion: no-preference) {
+	.project:hover img { transform: scale(1.04); }
+}
+@media (max-width: 900px) { .projects { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .projects { grid-template-columns: 1fr; } }
+
+/* ---------- Sketches ---------- */
+.sketches { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.sketches img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; margin-bottom: 16px; }
+.sketches h3 { font-size: 17px; margin-bottom: 6px; }
+.sketches p { font-size: 14px; margin: 0; }
+@media (max-width: 900px) { .sketches { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
+
+/* ---------- Contact ---------- */
+.contact { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+.contact__image {
+	background:
+		linear-gradient(rgba(47,60,79,.35), rgba(47,60,79,.35)),
+		url("images/cover_bg_1.jpg") center / cover no-repeat;
+}
+.contact__body {
+	background: var(--orange); color: var(--white);
+	padding: clamp(48px, 8vw, 96px) clamp(24px, 6vw, 72px);
+	display: flex; flex-direction: column; justify-content: center;
+}
+.contact__body h2 { color: var(--white); font-size: clamp(28px, 4vw, 38px); margin-bottom: 16px; }
+.contact__body p { max-width: 46ch; color: rgba(255,255,255,.95); }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.contact :focus-visible { outline-color: var(--navy); }
+
+.btn {
+	display: inline-block; padding: 10px 24px; border-radius: 30px;
+	background: var(--navy); color: var(--white); border: 2px solid var(--navy);
+	text-decoration: none; font-size: 14px; transition: background-color .2s ease, color .2s ease;
+}
+.btn:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+.btn--ghost { background: transparent; border-color: var(--white); color: var(--white); }
+.btn--ghost:hover { background: var(--white); color: var(--orange-deep); }
+
+@media (max-width: 800px) {
+	.contact { grid-template-columns: 1fr; }
+	.contact__image { min-height: 180px; }
+}
+
+/* ---------- Footer ---------- */
+.footer {
+	max-width: var(--wrap); margin: 0 auto; padding: 28px var(--gutter);
+	display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+	font-size: 13px; color: var(--muted);
+}
+.footer p { margin: 0; }
+</style>
+<a class="skip-link" href="#about">Skip to content</a>
+
+<header class="nav" id="nav">
+	<div class="nav__inner">
+		<a class="nav__brand" href="#top">Eisa</a>
+		<button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+			<span></span><span></span>
+		</button>
+		<nav class="nav__links" id="navLinks" aria-label="Main">
+			<a href="#about">About</a>
+			<a href="#experience">Experience</a>
+			<a href="#skills">Skills</a>
+			<a href="#projects">Projects</a>
+			<a href="#sketches">Sketches</a>
+			<a href="#contact" class="nav__cta">Contact</a>
+		</nav>
+	</div>
+</header>
+
+<main>
+
+<section class="hero" id="top">
+	<div class="hero__inner">
+		<img class="hero__photo" src="images/profileEisa.jpg" alt="Portrait of Eisa Keramatinejad" width="160" height="160">
+		<h1 class="hero__name">Eisa Keramatinejad</h1>
+		<p class="hero__role">Software Engineer II at Microsoft</p>
+		<p class="hero__lede">I build full-stack features end to end, from architecture to production, in TypeScript, Python and C#. Based in Toronto.</p>
+		<ul class="social" aria-label="Elsewhere">
+			<li><a href="mailto:eisa.keramati@gmail.com" aria-label="Email">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></a></li>
+			<li><a href="https://www.linkedin.com/in/eisa-keramatinejad/" aria-label="LinkedIn">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.220-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a></li>
+			<li><a href="https://github.com/eisakeramati" aria-label="GitHub">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49l-.01-1.9c-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.350 1.12 2.92.85.09-.66.35-1.12.64-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.910-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.520 2 12 2Z"/></svg></a></li>
+		</ul>
+	</div>
+	<a class="hero__scroll" href="#about" aria-label="Scroll to About">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+	</a>
+</section>
+
+<section class="section" id="about">
+	<div class="wrap">
+		<h2 class="section__title">About me</h2>
+		<div class="about">
+			<dl class="facts">
+				<div><dt>Role</dt><dd>Software Engineer II, Microsoft</dd></div>
+				<div><dt>Experience</dt><dd>5+ years in industry</dd></div>
+				<div><dt>Location</dt><dd>Toronto, ON</dd></div>
+				<div><dt>Email</dt><dd><a href="mailto:eisa.keramati@gmail.com">eisa.keramati@gmail.com</a></dd></div>
+				<div><dt>Education</dt><dd>B.Sc. Computer Science, Toronto Metropolitan University</dd></div>
+			</dl>
+			<div class="about__text">
+				<h3>Hi!</h3>
+				<p>I'm Eisa, a full-stack software engineer at Microsoft. I like owning a feature the whole way: designing it, building the APIs and UI, testing it properly, and then watching the telemetry once it's in people's hands.</p>
+				<p>At Microsoft I've led security-focused work on Microsoft Teams, built features for an internal data analytics platform used by 20+ teams, and engineered telemetry and data infrastructure for Microsoft Fabric. Before that I built products for media, news and banking clients at Thoughtworks and CIBC.</p>
+				<p>Outside of work I play volleyball and soccer, read, watch anime, and sketch a lot.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section--tint" id="experience">
+	<div class="wrap">
+		<h2 class="section__title">Experience</h2>
+
+		<ol class="timeline">
+			<li class="tl">
+				<div class="tl__when">Dec 2025 &ndash; Present</div>
+				<div class="tl__card">
+					<h3>Software Engineer II</h3>
+					<p class="tl__org">Microsoft, Toronto</p>
+					<ul>
+						<li>Built full-stack features for an internal data analytics and visualization platform in TypeScript and Python: calculated columns, dashboard filtering, charting and query-language support. Adopted by 20+ internal teams, with chart development time cut through backend optimizations.</li>
+						<li>Engineered telemetry and data infrastructure for Microsoft Fabric: Linux packaging pipelines, Kusto log routing across 26 namespaces, and automated migration of 450+ GDPR data-processing jobs off legacy infrastructure.</li>
+						<li>Built SQL-to-Kusto migration and validation tooling, and an AI-powered service that reports each release's commits, environments and an LLM-generated change summary.</li>
+					</ul>
+				</div>
+			</li>
+			<li class="tl">
+				<div class="tl__when">Apr 2024 &ndash; Dec 2025</div>
+				<div class="tl__card">
+					<h3>Software Engineer</h3>
+					<p class="tl__org">Microsoft, Toronto</p>
+					<ul>
+						<li>Led end-to-end development and rollout of a security-focused Microsoft Teams feedback feature, replacing a security-risk screenshot workflow with a secure, privacy-preserving capture experience. It now handles 800+ submissions daily.</li>
+						<li>Owned architecture, APIs and full-stack integration in TypeScript and C#, plus monitoring dashboards, accessibility, and unit, end-to-end and visual regression tests.</li>
+					</ul>
+				</div>
+			</li>
+			<li class="tl">
+				<div class="tl__when">Jul 2022 &ndash; Apr 2024</div>
+				<div class="tl__card">
+					<h3>Software Engineer</h3>
+					<p class="tl__org">Thoughtworks Canada, Toronto</p>
+					<ul>
+						<li>Designed the architecture, infrastructure and backend for a high-traffic contest platform for a Canadian media company, mitigating thundering-herd load spikes to keep it stable at peak.</li>
+						<li>Built a customizable financial watchlist service for a Canadian news company, plus a tiered membership flow that increased registrations and a redesigned account-creation flow.</li>
+					</ul>
+				</div>
+			</li>
+			<li class="tl">
+				<div class="tl__when">Jun 2021 &ndash; Jun 2022</div>
+				<div class="tl__card">
+					<h3>Front-End Developer</h3>
+					<p class="tl__org">CIBC, Toronto</p>
+					<ul>
+						<li>Built the Interac e-Transfer request-money flow and customizable account alerts in CIBC's online banking app.</li>
+						<li>Restructured the digital dispute app's logic into a graph-based model, improving performance and readability.</li>
+					</ul>
+				</div>
+			</li>
+		</ol>
+
+		<details class="earlier">
+			<summary>Earlier roles</summary>
+			<ol class="timeline timeline--compact">
+				<li class="tl">
+					<div class="tl__when">2019 &ndash; 2020</div>
+					<div class="tl__card">
+						<h3>Vice President of External Affairs</h3>
+						<p class="tl__org">TMU Science Society</p>
+						<p>Ran networking and job-shadowing events, secured event sponsorship, recruited industry panelists, and represented the Faculty of Science in the Ontario Science Students' Association.</p>
+					</div>
+				</li>
+				<li class="tl">
+					<div class="tl__when">2019</div>
+					<div class="tl__card">
+						<h3>Teaching Assistant</h3>
+						<p class="tl__org">Toronto Metropolitan University</p>
+						<p>Database Systems (CPS510): grading, tutorials and student support.</p>
+					</div>
+				</li>
+				<li class="tl">
+					<div class="tl__when">2018 &ndash; 2019</div>
+					<div class="tl__card">
+						<h3>Teaching Assistant</h3>
+						<p class="tl__org">Amirkabir University of Technology</p>
+						<p>Principles of Artificial Intelligence and Linear Algebra: assignments, grading, tutorials and labs.</p>
+					</div>
+				</li>
+			</ol>
+		</details>
+
+		<h2 class="section__title section__title--sub">Education &amp; honours</h2>
+		<div class="edu">
+			<div class="edu__item">
+				<h3>B.Sc. Computer Science</h3>
+				<p class="tl__org">Toronto Metropolitan University, 2019&ndash;2021</p>
+				<p>CGPA 4.00. Involved with the Faculty of Science, the TMU Science Society and the Ontario Science Students' Association.</p>
+			</div>
+			<div class="edu__item">
+				<h3>Computer Engineering</h3>
+				<p class="tl__org">Amirkabir University of Technology, 2016&ndash;2019</p>
+				<p>CGPA 17.8/20. ICPC programming contest moderator and member of the Computer Engineering Scientific Association.</p>
+			</div>
+			<ul class="honours">
+				<li><strong>Dennis Mock Student Leadership Award</strong> for leadership and contributions to TMU student life</li>
+				<li><strong>Dean's List</strong> 2020 and 2021, Toronto Metropolitan University</li>
+				<li><strong>Azure Fundamentals</strong> Microsoft Certified</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="skills">
+	<div class="wrap">
+		<h2 class="section__title">Skills</h2>
+		<dl class="skills">
+			<div><dt>Languages</dt><dd>TypeScript, JavaScript, Python, C#, SQL, KQL, Java</dd></div>
+			<div><dt>Frontend</dt><dd>React, Vue.js, Ember.js, HTML/CSS, accessibility (WCAG)</dd></div>
+			<div><dt>Backend</dt><dd>Node.js, Flask, Django, Spring Boot, REST and GraphQL APIs</dd></div>
+			<div><dt>Data &amp; cloud</dt><dd>Microsoft Azure, Kusto (Azure Data Explorer), Microsoft Fabric, MongoDB, Linux</dd></div>
+			<div><dt>Quality &amp; ops</dt><dd>CI/CD, telemetry and production monitoring, unit, end-to-end and visual regression testing</dd></div>
+			<div><dt>Ways of working</dt><dd>Agile, test-driven development, AI-assisted development, code review</dd></div>
+		</dl>
+	</div>
+</section>
+
+<section class="section section--dark" id="projects">
+	<div class="wrap">
+		<h2 class="section__title">Projects</h2>
+		<ul class="projects">
+			<li><a class="project" href="https://eisakeramati.github.io/Spacetagram/">
+				<img src="images/Spacetagram.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>Spacetagram</strong><span>Vue.js app for NASA's image of the day</span></span></a></li>
+			<li><a class="project" href="https://github.com/mbrotos/Face-Detection-SVM-HOG">
+				<img src="images/portfolio-5.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>Face detection</strong><span>Multi-scale detector with HOG features and an SVM, in Python</span></span></a></li>
+			<li><a class="project" href="http://narimanfarsad.com/cps803/docs/samples/CPS803-SampleReport-SentimentAnalysis.pdf">
+				<img src="images/portfolio-4.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>Sentiment analysis</strong><span>Classifying Amazon reviews with scikit-learn</span></span></a></li>
+			<li><a class="project" href="https://github.com/eisakeramati/Information-retrieval-system">
+				<img src="images/portfolio-6.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>Information retrieval system</strong><span>Search engine for a document collection</span></span></a></li>
+			<li><a class="project" href="https://weather-app-eisa.herokuapp.com">
+				<img src="images/portfolio-1.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>Weather app</strong><span>Design and implementation</span></span></a></li>
+			<li><a class="project" href="https://shoppies-eisa.herokuapp.com">
+				<img src="images/portfolio-2.png" alt="" loading="lazy">
+				<span class="project__desc"><strong>The Shoppies</strong><span>Movie nomination app</span></span></a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="section" id="sketches">
+	<div class="wrap">
+		<h2 class="section__title">Sketches</h2>
+		<p class="section__intro">I take pride in my artistic side and love life drawing and character design. A few pieces, as a way to get to know me better.</p>
+		<ul class="sketches">
+			<li>
+				<img src="images/portfolio-9.jpg" alt="Pencil life drawings of a model in a studio" loading="lazy">
+				<h3>Life drawings in the studio</h3>
+				<p>15&ndash;20 minute studies of a live model. September 2016.</p>
+			</li>
+			<li>
+				<img src="images/portflio-7.jpg" alt="Sketches of couples relaxing at Cherry Beach" loading="lazy">
+				<h3>Cherry Beach, Toronto</h3>
+				<p>Couples gazing at the water, drawn with consent by yours truly. June 2020.</p>
+			</li>
+			<li>
+				<img src="images/portfolio-8.jpg" alt="A storyboard sequence of sketched film frames" loading="lazy">
+				<h3>Coming to America</h3>
+				<p>Storyboard practice based on the film. August 2020.</p>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="contact" id="contact">
+	<div class="contact__image" aria-hidden="true"></div>
+	<div class="contact__body">
+		<h2>Let's build something</h2>
+		<p>Want to talk about an opportunity, a project, or just say hi? Reach out anytime; I enjoy a good conversation. May the force be with you!</p>
+		<div class="contact__actions">
+			<a class="btn" href="mailto:eisa.keramati@gmail.com">Email me</a>
+			<a class="btn btn--ghost" href="https://www.linkedin.com/in/eisa-keramatinejad/">LinkedIn</a>
+			<a class="btn btn--ghost" href="https://github.com/eisakeramati">GitHub</a>
+		</div>
+	</div>
+</section>
+
+</main>
+
+<footer class="footer">
+	<p>&copy; <span id="year">2026</span> Eisa Keramatinejad</p>
+	<a href="#top">Back to top</a>
+</footer>
+
+<script>
+(function () {
+	var nav = document.getElementById('nav');
+	var toggle = document.getElementById('navToggle');
+	var links = document.querySelectorAll('.nav__links a');
+	var hero = document.getElementById('top');
+
+	// Solid nav once the hero has scrolled away
+	function updateNav() {
+		var threshold = hero ? hero.offsetHeight - nav.offsetHeight : 80;
+		nav.classList.toggle('is-solid', window.scrollY > threshold);
+	}
+	window.addEventListener('scroll', updateNav, { passive: true });
+	window.addEventListener('resize', updateNav);
+	updateNav();
+
+	// Mobile menu
+	function setOpen(open) {
+		nav.classList.toggle('is-open', open);
+		toggle.setAttribute('aria-expanded', String(open));
+		toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+	}
+	toggle.addEventListener('click', function () {
+		setOpen(!nav.classList.contains('is-open'));
+	});
+	links.forEach(function (a) {
+		a.addEventListener('click', function () { setOpen(false); });
+	});
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); toggle.focus(); }
+	});
+
+	// Highlight the section in view
+	if ('IntersectionObserver' in window) {
+		var byId = {};
+		links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				var link = byId[entry.target.id];
+				if (!link) return;
+				if (entry.isIntersecting) {
+					links.forEach(function (l) { l.classList.remove('is-current'); l.removeAttribute('aria-current'); });
+					link.classList.add('is-current');
+					link.setAttribute('aria-current', 'true');
+				}
+			});
+		}, { rootMargin: '-45% 0px -50% 0px' });
+		Object.keys(byId).forEach(function (id) {
+			var el = document.getElementById(id);
+			if (el) io.observe(el);
+		});
+	}
+
+	var year = document.getElementById('year');
+	if (year) year.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body></html>
