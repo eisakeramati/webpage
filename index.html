@@ -75,6 +75,7 @@ ul, ol { margin: 0; padding: 0; }
 	height: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px);
 	transition: background-color .25s ease, box-shadow .25s ease;
 }
+.nav.is-scrolled { background: var(--orange); box-shadow: 0 2px 12px rgba(29,35,44,.12); }
 .nav.is-solid { background: var(--white); box-shadow: 0 1px 0 var(--line); }
 .nav__inner {
 	max-width: var(--wrap); height: 100%; margin: 0 auto; padding: 0 var(--gutter);
@@ -623,6 +624,7 @@ ul, ol { margin: 0; padding: 0; }
 	// Solid nav once the hero has scrolled away
 	function updateNav() {
 		var threshold = hero ? hero.offsetHeight - nav.offsetHeight : 80;
+		nav.classList.toggle('is-scrolled', window.scrollY > 8);
 		nav.classList.toggle('is-solid', window.scrollY > threshold);
 	}
 	window.addEventListener('scroll', updateNav, { passive: true });
